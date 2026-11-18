@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="mundo_montana">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
+
+    <!-- VIENTO: afecta solo a links con <enable_wind>true</enable_wind> -->
+    <plugin filename="ignition-gazebo-wind-effects-system" name="ignition::gazebo::systems::WindEffects">
+      <force_approximation_scaling_factor>0.2</force_approximation_scaling_factor>
+      <horizontal>
+        <magnitude>
+          <time_for_rise>10</time_for_rise>
+          <sin><amplitude_percent>0.2</amplitude_percent><period>20</period></sin>
+          <noise type="gaussian"><mean>0</mean><stddev>0.1</stddev></noise>
+        </magnitude>
+        <direction>
+          <time_for_rise>30</time_for_rise>
+          <sin><amplitude>5</amplitude><period>40</period></sin>
+          <noise type="gaussian"><mean>0</mean><stddev>0.03</stddev></noise>
+        </direction>
+      </horizontal>
+      <vertical>
+        <noise type="gaussian"><mean>0</mean><stddev>0.03</stddev></noise>
+      </vertical>
+    </plugin>
+    <wind><linear_velocity>3 0 0</linear_velocity></wind>
+
+    <gravity>0 0 -9.8</gravity>
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.6 0.8 1.0 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="sol">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 30 0 0 0</pose>
+      <direction>-0.5 0.2 -0.9</direction>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+    </light>
+
+    <!-- Piso plano -->
+    <model name="piso">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><plane><normal>0 0 1</normal><size>300 300</size></plane></geometry></collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>300 300</size></plane></geometry>
+          <material><ambient>0.35 0.5 0.25 1</ambient><diffuse>0.35 0.5 0.25 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <include><uri>models://mountain</uri><name>mountain</name><pose>0 0 0 0 0 0</pose></include>
+    <include><uri>models://farmacy</uri><name>farmacy</name><pose>50 0 0 0 0 0</pose></include>
+
+    <!-- ArUco 1: en el piso DENTRO de la casa (se ve desde arriba, no hay techo) -->
+    <include><uri>models://aruco_1</uri><name>aruco_1</name><pose>50 0 0.006 0 0 0</pose></include>
+    <!-- ArUco 2: en el piso, entre la montaña y la casa -->
+    <include><uri>models://aruco_2</uri><name>aruco_2</name><pose>38 -8 0.006 0 0 0</pose></include>
+
+    <!-- DRON: arranca en el piso entre la montaña y la casa -->
+    <include><uri>models://iris</uri><name>iris</name><pose>42 0 0.21 0 0 0</pose></include>
+
+  </world>
+</sdf>

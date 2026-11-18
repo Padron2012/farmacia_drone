@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="farmacy">
+    <static>true</static>
+    <link name="norte">
+      <pose>0 3 1.25 0 0 0</pose>
+      <collision name="c"><geometry><box><size>6.2 0.2 2.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>6.2 0.2 2.5</size></box></geometry>
+        <material><ambient>0.75 0.7 0.6 1</ambient><diffuse>0.75 0.7 0.6 1</diffuse></material></visual>
+    </link>
+    <link name="sur">
+      <pose>0 -3 1.25 0 0 0</pose>
+      <collision name="c"><geometry><box><size>6.2 0.2 2.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>6.2 0.2 2.5</size></box></geometry>
+        <material><ambient>0.75 0.7 0.6 1</ambient><diffuse>0.75 0.7 0.6 1</diffuse></material></visual>
+    </link>
+    <link name="este">
+      <pose>3 0 1.25 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.2 6.2 2.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 6.2 2.5</size></box></geometry>
+        <material><ambient>0.75 0.7 0.6 1</ambient><diffuse>0.75 0.7 0.6 1</diffuse></material></visual>
+    </link>
+    <link name="oeste_a">
+      <pose>-3 1.8 1.25 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.2 2.4 2.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 2.4 2.5</size></box></geometry>
+        <material><ambient>0.75 0.7 0.6 1</ambient><diffuse>0.75 0.7 0.6 1</diffuse></material></visual>
+    </link>
+    <link name="oeste_b">
+      <pose>-3 -1.8 1.25 0 0 0</pose>
+      <collision name="c"><geometry><box><size>0.2 2.4 2.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 2.4 2.5</size></box></geometry>
+        <material><ambient>0.75 0.7 0.6 1</ambient><diffuse>0.75 0.7 0.6 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

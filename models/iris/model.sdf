@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<!-- Iris (basado en tu URDF). Visuales con primitivas porque no tengo los .dae de iris_description. -->
+<sdf version="1.8">
+  <model name="iris">
+    <link name="base_link">
+      <enable_wind>true</enable_wind>
+      <inertial>
+        <mass>1.5</mass>
+        <inertia><ixx>0.0347563</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.0458929</iyy><iyz>0</iyz><izz>0.07</izz></inertia>
+      </inertial>
+      <collision name="body_collision"><geometry><box><size>0.47 0.47 0.11</size></box></geometry></collision>
+      <visual name="cuerpo">
+        <geometry><box><size>0.20 0.20 0.07</size></box></geometry>
+        <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+      </visual>
+      <visual name="brazo_0">
+        <pose>0.0650 -0.1100 0.023 0 0 -1.0371</pose>
+        <geometry><box><size>0.2555 0.02 0.02</size></box></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+      </visual>
+      <visual name="brazo_1">
+        <pose>-0.0650 0.1000 0.023 0 0 2.1472</pose>
+        <geometry><box><size>0.2385 0.02 0.02</size></box></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+      </visual>
+      <visual name="brazo_2">
+        <pose>0.0650 0.1100 0.023 0 0 1.0371</pose>
+        <geometry><box><size>0.2555 0.02 0.02</size></box></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+      </visual>
+      <visual name="brazo_3">
+        <pose>-0.0650 -0.1000 0.023 0 0 -2.1472</pose>
+        <geometry><box><size>0.2385 0.02 0.02</size></box></geometry>
+        <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+      </visual>
+      <collision name="pata_0_col"><pose>0.13 -0.22 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.012</radius><length>0.2</length></cylinder></geometry></collision>
+      <visual name="pata_0"><pose>0.13 -0.22 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.009</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0 0 0.8 1</ambient><diffuse>0 0 0.8 1</diffuse></material></visual>
+      <collision name="pata_1_col"><pose>-0.13 0.2 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.012</radius><length>0.2</length></cylinder></geometry></collision>
+      <visual name="pata_1"><pose>-0.13 0.2 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.009</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0 0 0.8 1</ambient><diffuse>0 0 0.8 1</diffuse></material></visual>
+      <collision name="pata_2_col"><pose>0.13 0.22 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.012</radius><length>0.2</length></cylinder></geometry></collision>
+      <visual name="pata_2"><pose>0.13 0.22 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.009</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0 0 0.8 1</ambient><diffuse>0 0 0.8 1</diffuse></material></visual>
+      <collision name="pata_3_col"><pose>-0.13 -0.2 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.012</radius><length>0.2</length></cylinder></geometry></collision>
+      <visual name="pata_3"><pose>-0.13 -0.2 -0.102 0 0 0</pose>
+        <geometry><cylinder><radius>0.009</radius><length>0.2</length></cylinder></geometry>
+        <material><ambient>0 0 0.8 1</ambient><diffuse>0 0 0.8 1</diffuse></material></visual>
+      <sensor name="camara_abajo" type="camera">
+        <pose>0 0 -0.06 0 1.5708 0</pose>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>camara_abajo</topic>
+        <camera>
+          <horizontal_fov>1.396</horizontal_fov>
+          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+          <clip><near>0.1</near><far>100</far></clip>
+        </camera>
+      </sensor>
+      <sensor name="imu" type="imu">
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <topic>imu</topic>
+      </sensor>
+    </link>
+
+    <link name="rotor_0">
+      <pose>0.13 -0.22 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia><ixx>9.7499961e-07</ixx><ixy>0</ixy><ixz>0</ixz><iyy>4.170414998500001e-05</iyy><iyz>0</iyz><izz>4.2604149625000006e-05</izz></inertia>
+      </inertial>
+      <visual name="disco">
+        <geometry><cylinder><radius>0.1</radius><length>0.003</length></cylinder></geometry>
+        <material><ambient>0.1 0.2 0.9 1</ambient><diffuse>0.1 0.2 0.9 1</diffuse><transparency>0.35</transparency></material>
+      </visual>
+      <visual name="aspa">
+        <geometry><box><size>0.2 0.02 0.006</size></box></geometry>
+        <material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="rotor_1">
+      <pose>-0.13 0.2 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia><ixx>9.7499961e-07</ixx><ixy>0</ixy><ixz>0</ixz><iyy>4.170414998500001e-05</iyy><iyz>0</iyz><izz>4.2604149625000006e-05</izz></inertia>
+      </inertial>
+      <visual name="disco">
+        <geometry><cylinder><radius>0.1</radius><length>0.003</length></cylinder></geometry>
+        <material><ambient>0.9 0.15 0.15 1</ambient><diffuse>0.9 0.15 0.15 1</diffuse><transparency>0.35</transparency></material>
+      </visual>
+      <visual name="aspa">
+        <geometry><box><size>0.2 0.02 0.006</size></box></geometry>
+        <material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="rotor_2">
+      <pose>0.13 0.22 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia><ixx>9.7499961e-07</ixx><ixy>0</ixy><ixz>0</ixz><iyy>4.170414998500001e-05</iyy><iyz>0</iyz><izz>4.2604149625000006e-05</izz></inertia>
+      </inertial>
+      <visual name="disco">
+        <geometry><cylinder><radius>0.1</radius><length>0.003</length></cylinder></geometry>
+        <material><ambient>0.1 0.2 0.9 1</ambient><diffuse>0.1 0.2 0.9 1</diffuse><transparency>0.35</transparency></material>
+      </visual>
+      <visual name="aspa">
+        <geometry><box><size>0.2 0.02 0.006</size></box></geometry>
+        <material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="rotor_3">
+      <pose>-0.13 -0.2 0.023 0 0 0</pose>
+      <inertial>
+        <mass>0.005</mass>
+        <inertia><ixx>9.7499961e-07</ixx><ixy>0</ixy><ixz>0</ixz><iyy>4.170414998500001e-05</iyy><iyz>0</iyz><izz>4.2604149625000006e-05</izz></inertia>
+      </inertial>
+      <visual name="disco">
+        <geometry><cylinder><radius>0.1</radius><length>0.003</length></cylinder></geometry>
+        <material><ambient>0.9 0.15 0.15 1</ambient><diffuse>0.9 0.15 0.15 1</diffuse><transparency>0.35</transparency></material>
+      </visual>
+      <visual name="aspa">
+        <geometry><box><size>0.2 0.02 0.006</size></box></geometry>
+        <material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <joint name="rotor_0_joint" type="revolute">
+      <parent>base_link</parent><child>rotor_0</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit><dynamics><damping>0.004</damping></dynamics></axis>
+    </joint>
+    <joint name="rotor_1_joint" type="revolute">
+      <parent>base_link</parent><child>rotor_1</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit><dynamics><damping>0.004</damping></dynamics></axis>
+    </joint>
+    <joint name="rotor_2_joint" type="revolute">
+      <parent>base_link</parent><child>rotor_2</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit><dynamics><damping>0.004</damping></dynamics></axis>
+    </joint>
+    <joint name="rotor_3_joint" type="revolute">
+      <parent>base_link</parent><child>rotor_3</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit><dynamics><damping>0.004</damping></dynamics></axis>
+    </joint>
+
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="ignition::gazebo::systems::MulticopterMotorModel">
+      <robotNamespace>iris</robotNamespace>
+      <jointName>rotor_0_joint</jointName>
+      <linkName>rotor_0</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>800.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="ignition::gazebo::systems::MulticopterMotorModel">
+      <robotNamespace>iris</robotNamespace>
+      <jointName>rotor_1_joint</jointName>
+      <linkName>rotor_1</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>800.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="ignition::gazebo::systems::MulticopterMotorModel">
+      <robotNamespace>iris</robotNamespace>
+      <jointName>rotor_2_joint</jointName>
+      <linkName>rotor_2</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>800.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="ignition-gazebo-multicopter-motor-model-system" name="ignition::gazebo::systems::MulticopterMotorModel">
+      <robotNamespace>iris</robotNamespace>
+      <jointName>rotor_3_joint</jointName>
+      <linkName>rotor_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>800.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>3</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    <plugin filename="ignition-gazebo-multicopter-control-system" name="ignition::gazebo::systems::MulticopterVelocityControl">
+      <robotNamespace>iris</robotNamespace>
+      <commandSubTopic>gazebo/command/twist</commandSubTopic>
+      <enableSubTopic>enable</enableSubTopic>
+      <comLinkName>base_link</comLinkName>
+      <velocityGain>2.7 2.7 2.7</velocityGain>
+      <attitudeGain>2 3 0.15</attitudeGain>
+      <angularRateGain>0.4 0.52 0.18</angularRateGain>
+      <maximumLinearAcceleration>2 2 2</maximumLinearAcceleration>
+      <rotorConfiguration>
+        <rotor><jointName>rotor_0_joint</jointName><forceConstant>8.54858e-06</forceConstant><momentConstant>0.016</momentConstant><direction>1</direction></rotor>
+        <rotor><jointName>rotor_1_joint</jointName><forceConstant>8.54858e-06</forceConstant><momentConstant>0.016</momentConstant><direction>1</direction></rotor>
+        <rotor><jointName>rotor_2_joint</jointName><forceConstant>8.54858e-06</forceConstant><momentConstant>0.016</momentConstant><direction>-1</direction></rotor>
+        <rotor><jointName>rotor_3_joint</jointName><forceConstant>8.54858e-06</forceConstant><momentConstant>0.016</momentConstant><direction>-1</direction></rotor>
+      </rotorConfiguration>
+    </plugin>
+    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+      <dimensions>3</dimensions>
+    </plugin>
+  </model>
+</sdf>

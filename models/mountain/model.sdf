@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="mountain">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry><mesh><uri>models://mountain/mountain.obj</uri></mesh></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><mesh><uri>models://mountain/mountain.obj</uri></mesh></geometry>
+        <material>
+          <ambient>0.42 0.38 0.30 1</ambient>
+          <diffuse>0.42 0.38 0.30 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
