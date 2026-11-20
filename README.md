@@ -16,10 +16,12 @@ Abre una terminal y ejecuta:
 ```bash
 cd ~/Farmacia/src/farmacia_drone
 
-source /opt/ros/humble/setup.bash
+colcon build
 source install/setup.bash
 
 ros2 launch farmacia_drone farmacia_drone.launch.py
+o
+./correr.sh 
 ```
 
 Espera a que Gazebo termine de cargar el mundo y aparezca el dron Iris.
