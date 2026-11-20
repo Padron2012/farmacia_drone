@@ -67,12 +67,13 @@
     <include><uri>models://farmacy</uri><name>farmacy</name><pose>50 0 0 0 0 0</pose></include>
 
     <!-- ArUco 1: en el piso DENTRO de la casa (se ve desde arriba, no hay techo) -->
-    <include><uri>models://aruco_1</uri><name>aruco_1</name><pose>50 0 0.006 0 0 0</pose></include>
+    <include><uri>models://aruco_1</uri><name>aruco_1</name><pose>50 0 0 0 0 0</pose></include>
     <!-- ArUco 2: en el piso, entre la montaña y la casa -->
-    <include><uri>models://aruco_2</uri><name>aruco_2</name><pose>38 -8 0.006 0 0 0</pose></include>
-
+    <include><uri>models://aruco_2</uri><name>aruco_2</name><pose>40 1.9 0.5 1.570796 1.570796 0</pose></include> <!-- 1.570796 es 90 deg-->
+    <!-- Pared pal ArUco 2-->
+    <include><uri>models://pared</uri><name>pared</name><pose>40 -1 1 0 0 0</pose></include>
     <!-- DRON: arranca en el piso entre la montaña y la casa -->
-    <include><uri>models://iris</uri><name>iris</name><pose>42 0 0.21 0 0 0</pose></include>
+    <include><uri>models://iris</uri><name>iris</name><pose>40 0 0.21 0 0 1.570796</pose></include>
 
   </world>
 </sdf>
